@@ -7,10 +7,11 @@ async function getPosts(searchParams) {
   if (searchParams?.search) params.set('search', searchParams.search);
 
   try {
-    const res = await fetch(`http://localhost:3000/api/posts?${params}`, { cache: 'no-store' });
+    const res = await fetch(`/api/posts?${params.toString()}`, { cache: 'no-store' });
     const data = await res.json();
     return data.posts || [];
-  } catch {
+  } catch (err) {
+    console.error('Fetch posts failed:', err);
     return [];
   }
 }
