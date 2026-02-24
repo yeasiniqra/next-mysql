@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+body {
+  font-family: 'Crimson Text', Georgia, serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Prose styles for blog content */
+.prose-blog h2 { @apply text-2xl font-bold text-amber-400 mt-8 mb-3; }
+.prose-blog h3 { @apply text-xl font-semibold text-[#e8e0d0] mt-6 mb-2; }
+.prose-blog p  { @apply text-[#c0b8a8] leading-8 mb-5 text-lg; }
+.prose-blog a  { @apply text-amber-400 underline hover:text-amber-300; }
+.prose-blog ul { @apply list-disc list-inside text-[#c0b8a8] mb-5 space-y-1; }
+.prose-blog ol { @apply list-decimal list-inside text-[#c0b8a8] mb-5 space-y-1; }
+.prose-blog blockquote { @apply border-l-4 border-amber-400 pl-4 italic text-[#888] my-6; }
+.prose-blog code { @apply bg-[#1a1a1a] px-1.5 py-0.5 rounded text-amber-300 text-sm; }
+.prose-blog pre  { @apply bg-[#1a1a1a] p-4 rounded-lg overflow-x-auto my-6; }
