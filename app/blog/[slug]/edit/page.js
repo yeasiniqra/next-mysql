@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 async function getPost(slug) {
   try {
-    const res = await fetch(`https://next-mysql-indol.vercel.app/api/post/${slug}`, { cache: 'no-store' });
+    const res = await fetch(`http://localhost:3000/api/post/${slug}`, { cache: 'no-store' });
     if (!res.ok) return null;
     const data = await res.json();
     return data.post;

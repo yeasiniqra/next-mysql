@@ -22,7 +22,7 @@ npm run dev
 
 ### 3. Open in browser
 ```
-https://next-mysql-indol.vercel.app
+http://localhost:3000
 ```
 
 ## File Structure
