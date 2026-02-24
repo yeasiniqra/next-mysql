@@ -3,7 +3,12 @@ import Link from 'next/link';
 
 async function getLatestPosts() {
   try {
-    const res = await fetch('http://localhost:3000/api/posts', { cache: 'no-store' });
+    const base = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+
+    const url = `${base}/api/posts`;
+    const res = await fetch(url, { cache: 'no-store' });
     const data = await res.json();
     return data.posts || [];
   } catch {

@@ -7,7 +7,14 @@ async function getPosts(searchParams) {
   if (searchParams?.search) params.set('search', searchParams.search);
 
   try {
-    const res = await fetch(`/api/posts?${params.toString()}`, { cache: 'no-store' });
+    const base = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+
+    const query = params.toString();
+    const url = query ? `${base}/api/posts?${query}` : `${base}/api/posts`;
+
+    const res = await fetch(url, { cache: 'no-store' });
     const data = await res.json();
     return data.posts || [];
   } catch (err) {
